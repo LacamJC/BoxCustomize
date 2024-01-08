@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Box Customize</title>
+    <style>
+        #quadrado
+        {
+            width: 300px;
+            height: 300px;
+            /* border: 3px solid black; */
+            background-color: black;
+
+            margin: auto;
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container mt-5">
+        <div class="mb-3 m-auto" style="max-width: 500px;">
+            <label for="customRange1" class="form-label">Controle da borda <span id="valueRadius">0%</span></label>
+            <input type="range" class="form-range" id="range" oninput="updateRange()">
+            <div class="form-text">Border Radius : <span id="infoRadius"></span></div>
+        </div>
+
+        <div class="mb-3 m-auto" style="max-width: 500px;">
+            <label for="customRange2" class="form-label">Controle do largura  <span id="valueWidth">50%</span></label>
+            <input type="range" name="" id="rangeWidth" class="form-range" oninput="updateRange()">
+            <div class="form-text">Width : <span id="infoWidth"></span></div>
+        </div>
+
+        <div class="mb-3 m-auto" style="max-width: 500px;">
+            <label for="customRange3" class="form-label">controle de Altura <span id="valueHeigth">50%</span></label>
+            <input type="range" name="" id="rangeHeigth" class="form-range" oninput="updateRange()">
+            <div class="form-text">Heigth : <span id="infoHeigth"></span></div>
+        </div>
+
+        <div class="mb-3 m-auto" style="max-width: 500px;">
+            <label for="rangeColor">Controle de Cor</label>
+            <input type="color" name="" id="rangeColor" class="form-control m-auto" style="width: 100px; height: 40px;" oninput="updateRange()">
+        </div>
+
+        <div class="m-auto" style="max-width: 400px; height: 400px; display: flex; justify-content: center; align-items: center;">
+            <div id="quadrado" style="width: 300px;"></div>
+         
+        </div>
+        <div id="codigo" class="m-auto w-50 my-5">
+           
+        </div>
+    
+    </div>
+
+    <script>
+
+        var quadrado = document.getElementById('quadrado')
+        var width = document.getElementById('rangeWidth').value
+        var heigth = document.getElementById('rangeHeigth').value
+        var tamCubo = 0;
+        var espacamento = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+        var codigo = document.getElementById('codigo')
+
+        var infoRadius = document.getElementById('infoRadius')
+        var infoWidth = document.getElementById('infoWidth')
+        var infoHeigth = document.getElementById('infoHeigth')
+
+        infoRadius.innerHTML  = "0%"
+
+        quadrado.style.width = `${width}%`
+        quadrado.style.backgroundColor = document.getElementById('rangeColor').value
+        function updateRange()
+        {
+            var radius = document.getElementById('range').value
+            var width = document.getElementById('rangeWidth').value
+            var heigth = document.getElementById('rangeHeigth').value
+            var alturaTela = window.innerWidth 
+            var tamCubo
+
+            var cor = document.getElementById('rangeColor').value
+            // console.log(cor.value)
+
+            console.log(`ALTURA : ${heigth}`)
+            
+            tamCubo = alturaTela - (width/100) * alturaTela
+
+            // console.log(`TAMANHO DO CUBO ${tamCubo}`)
+            // console.log(typeof(alturaTela))
+            
+            // console.log("TAMANHO : "+ alturaTela.value - (radius/100) * alturaTela).value
+            quadrado.style.borderRadius = `${radius}px`
+            quadrado.style.width = `${width*3}px` 
+            quadrado.style.height = `${heigth*3}px`
+            quadrado.style.backgroundColor = ` ${cor} ` 
+            // quadrado.style.height = `${tamCubo}%`
+// 
+            document.getElementById('valueWidth').innerHTML = ` ${width}%`
+            document.getElementById('valueRadius').innerHTML  = ` ${radius}%`
+            document.getElementById('valueHeigth').innerHTML = `${heigth}%`
+            infoRadius.innerHTML = `${radius}%`
+            infoWidth.innerHTML = `${width*3}px`
+            infoHeigth.innerHTML = `${heigth*3}px`
+            tamCubo = 0;
+
+
+            // codigo.innerHTML = `#quadrado<br>{<br>${espacamento}width: ${width*3}px;<br>${espacamento}heigth: ${heigth*3}px;<br>${espacamento}border-radius: ${radius}%;<br>${espacamento}background-color: ${cor};<br>}<br> <button onclick="copy()" class="btn btn-primary m-auto my-2">Copiar código</button>`
+        }
+
+        function copy()
+        {
+            let elemento = document.getElementById('codigo')
+            let textoSelecionado = window.getSelection()
+            let intervalo = document.createRange()
+
+            intervalo.selectNodeContents(elemento);
+            textoSelecionado.removeAllRanges();
+            textoSelecionado.addRange(intervalo);
+
+            /* Executa o comando de cópia */
+            document.execCommand("copy");
+
+            /* Limpa a seleção */
+            textoSelecionado.removeAllRanges();
+
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html>

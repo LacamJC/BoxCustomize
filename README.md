@@ -1,9 +1,20 @@
 # BoxCustomize
 ## Sobre
-Um projeto que visa o teste de DOM, com manipulação do tamanho de um quadrado e outros parametros como sua largura,alura e raio de borda.
+Um projeto que tem como objetivo realizar testes no DOM, envolvendo a manipulação do tamanho de um quadrado e outros parâmetros, tais como largura, altura e raio de borda.
 
+### Principais Funcionalidades
+<ul>
+  <li>Controle de Largura</li>
+  <li>Controle de Altura</li>
+  <li>Controle de Borda</li>
+  <li>Manipulação de Cores</li>
+</ul>
 
-Projeto de manipulação e ranges e JS
-
+### Tecnologias Utilizadas
+<ul>
+  <li>HTML </li>
+  <li>CSS</li>
+  <li>JS</li>
+</ul>
 
 Link para o Github pages:https://lacamjc.github.io/BoxCustomize/

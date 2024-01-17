@@ -1,5 +1,5 @@
 # BoxCustomize
-https://lacamjc.github.io/BoxCustomize/
+
 ## Sobre
 Um projeto que tem como objetivo realizar testes no DOM, envolvendo a manipulação do tamanho de um quadrado e outros parâmetros, tais como largura, altura e raio de borda.
 
